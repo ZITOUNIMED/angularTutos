@@ -1,17 +1,14 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
-import { RouterModule, Routes } from "@angular/router";
 
 import { AppComponent } from "./app.component";
-import { TutoRoutingComponent } from "./tuto-routing/tuto-routing.component";
-
-const appRoutes: Routes = [
-  { path: "routing", component: TutoRoutingComponent }
-];
+import { Tuto1Module } from "./tuto-routing/tuto1.module";
+import { AppRoutingModule } from "./app.routing.module";
+import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 
 @NgModule({
-  declarations: [AppComponent, TutoRoutingComponent],
-  imports: [BrowserModule, RouterModule.forRoot(appRoutes)],
+  declarations: [AppComponent, PageNotFoundComponent],
+  imports: [BrowserModule, Tuto1Module, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent]
 })
