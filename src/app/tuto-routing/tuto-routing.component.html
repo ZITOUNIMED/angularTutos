@@ -1,0 +1,43 @@
+<h1>Routing Tutorial</h1>
+<h2>index.html</h2>
+We should add a <base> element in the header of index.html page to tell router how to compose navigation URLs.<br/>
+index.html<br/>
+<textarea name="name" rows="1" cols="40">
+  <base href="/">
+</textarea>
+<h2>Build app routes</h2>
+app.module.ts<br/>
+<textarea name="name" rows="8" cols="80">
+  import { Routes } from '@angular/router';
+
+  const appRoutes: Routes = [
+    { path: 'tuto1', component: Tuto1Component }
+    { path: 'tuto2', component: Tuto2Component }
+    ...,
+    { path: '', redirectTo: 'tuto1', pathMatch: full } // default path
+  ];
+</textarea>
+<h2>Import RouterModule with forRoot function in app.module.ts file</h2>
+app.module.ts<br/>
+<textarea name="name" rows="9" cols="80">
+  import { RouterModule } from '@angular/router';
+
+  @NgModule({
+    imports: [
+     ...,
+     RouterModule.forRoot(
+     appRoutes, // use appRoutes
+     { enableTracing: true } // show debug purposes in console
+     )
+    ]
+  })
+
+</textarea>
+<h2>RouterLink and RouterLinkActive</h2>
+In a html page we set hypertext links using <a> element and specifing the link by routerLink and we can use routerActive to enable <br/>
+or disable the link.<br/>
+app.component.html<br/>
+<textarea name="name" rows="2" cols="80">
+ <a routerlink="/tuto1" routerLinkActive="active">Go to Tuto 1<a>
+ <a routerlink="/tuto2" routerLinkActive="">Go to Tuto 2<a>
+</textarea>
